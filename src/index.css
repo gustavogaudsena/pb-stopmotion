@@ -1,0 +1,46 @@
+:root {
+  --deep-blue: #0E59AC;
+  --deep-blue-op: #0E59AC4d;
+  --orange: #FD9B63;
+  --orange-op: #FD9B634d;
+  --white: #F1F1F1;
+  --white-op: #F1F1F14d;
+  --black: #2a2a2a;
+  --black-op: #2a2a2a4d;
+  --dark-gray: #5A5555;
+  --dark-gray-op: #5A55554d;
+  --gray: #EDEBEB;
+  --gray-op: #EDEBEB4d;
+  --danger: #730d0d;
+  --danger-op: #730d0d4d;
+
+
+  --bg-color: var(--white);
+  --text-color: var(--black);
+  --primary: var(--deep-blue);
+  --primary-op: var(--deep-blue-op);
+  --secondary: var(--orange);
+  --secondary-op: var(--orange-op);
+
+  font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+
+button {
+  border: none;
+  background-color: none;
+}
+
+:root [data-theme=dark] {
+  --bg-color: var(--black);
+  --text-color: var(--white);
+  --secondary: var(--deep-blue);
+  --secondary-op: var(--deep-blue-op);
+  --primary: var(--orange);
+  --primary-op: var(--orange-op);
+}
