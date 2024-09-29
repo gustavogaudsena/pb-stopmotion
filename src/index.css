@@ -3,6 +3,10 @@
   --deep-blue-op: #0E59AC4d;
   --orange: #FD9B63;
   --orange-op: #FD9B634d;
+  --wine: #B12F1F;
+  --wine-op: #B12F1F4d;
+  --purple: #5D3E9F;
+  --purple-op: #5D3E9F4d;
   --white: #F1F1F1;
   --white-op: #F1F1F14d;
   --black: #2a2a2a;
@@ -17,10 +21,10 @@
 
   --bg-color: var(--white);
   --text-color: var(--black);
-  --primary: var(--deep-blue);
-  --primary-op: var(--deep-blue-op);
-  --secondary: var(--orange);
-  --secondary-op: var(--orange-op);
+  --primary: var(--wine);
+  --primary-op: var(--wine-op);
+  --secondary: var(--purple);
+  --secondary-op: var(--purple-op);
 
   font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -39,8 +43,8 @@ button {
 :root [data-theme=dark] {
   --bg-color: var(--black);
   --text-color: var(--white);
-  --secondary: var(--deep-blue);
-  --secondary-op: var(--deep-blue-op);
-  --primary: var(--orange);
-  --primary-op: var(--orange-op);
+  --secondary: var(--wine);
+  --secondary-op: var(--wine-op);
+  --primary: var(--purple);
+  --primary-op: var(--purple-op);
 }
