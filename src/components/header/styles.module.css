@@ -1,0 +1,51 @@
+.header .headerContainer {
+    background-image: linear-gradient(var(--secondary-op), var(--primary-op)),
+        url('./header-bg.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 60vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.headerBox {
+    background-color: var(--white-op);
+    color: var(--white);
+    margin: 0 auto;
+    width: fit-content;
+    padding: clamp(1rem, 5vw, 2rem) clamp(1rem, 5vw, 2.5rem);
+    border-radius: 1rem;
+    width: 95%;
+    max-width: 450px;
+    min-width: 200px;
+    gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+}
+
+.headerTitle {
+    font-size: clamp(0.9rem, 1vw, 1rem);
+}
+
+@media (min-width: 480px) {
+    .headerTitle {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 720px) {
+    .header .headerContainer {
+        height: clamp(300px, 3vh, 500px);
+    }
+}
