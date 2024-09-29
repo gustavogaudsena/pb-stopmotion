@@ -1,0 +1,136 @@
+.movieList {
+    padding: 1rem;
+}
+
+.movieList .movieListContainerCards {
+    margin: 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.movieListContainerControle {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.movieListContainerControle button {
+    background-color: transparent;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    display: flex;
+    gap: 0.25rem;
+    cursor: pointer;
+}
+
+.movieListContainerControle button:hover {
+    color: var(--primary);
+}
+
+.movieListContainerControle button svg {
+    color: var(--primary);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+
+.movieListOrdenacao {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0;
+    width: 100%;
+}
+
+
+
+.movieListOrdenacao .movieListOrdenacaoArrows {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.movieListOrdenacao .movieListOrdenacaoArrows svg {
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
+    color: var(--dark-gray)
+}
+
+.movieListOrdenacao .movieListOrdenacaoArrows svg {
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
+    color: var(--dark-gray)
+}
+
+.movieListNotFound {
+    text-align: center;
+    width: 100%;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--gray_op);
+}
+
+
+.movieListOrdenacao span {
+    color: var(--dark-gray)
+}
+
+.movieListOrdenacao span:hover {
+    color: var(--primary)
+}
+
+
+
+@media (min-width: 720px) {
+    .movieList .movieListContainerCards {
+        justify-content: flex-start;
+    }
+
+    .movieListContainerControle {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .movieListOrdenacao {
+        justify-content: start;
+    }
+
+    .movieListGerenciadores {
+        justify-content: end;
+    }
+}
+
+
+[data-theme=dark] .movieListContainerControle button svg {
+    color: var(--secondary);
+}
+
+[data-theme=dark] .movieListContainerControle button:hover {
+    color: var(--secondary);
+}
+
+[data-theme=dark] .movieListGerenciadores button[data-selected=true] {
+    color: var(--secondary);
+}
+
+[data-theme=dark] .movieListNotFound {
+    color: var(--dark-gray)
+}
+
+[data-theme=dark] .movieListGerenciadores span,
+[data-theme=dark] .movieListOrdenacao span {
+    color: var(--black)
+}
+
+[data-theme=dark] .movieListGerenciadores button[data-selected=true] span {
+    color: var(--secondary);
+}
+
+[data-theme=dark] .movieListGerenciadores span:hover,
+[data-theme=dark] .movieListOrdenacao span:hover {
+    color: var(--secondary)
+}
