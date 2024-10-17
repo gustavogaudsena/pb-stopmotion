@@ -3,9 +3,8 @@ import Header from '../../components/header';
 import MovieList from '../../components/movieList';
 import styles from './styles.module.css';
 import { v4 as uuidv4 } from 'uuid';
+import { MoviesProvider } from '../../contexts/moviesContext';
 
-const KEYWORD_STOPMOTION_ID = 10121;
-const GENRE_ANIMATION_ID = 16;
 
 const MOCK_FILMES = [
     {
@@ -54,10 +53,11 @@ export default function Home() {
     const [filmes, setFilmes] = useState(MOCK_FILMES);
 
     return (
-        <div className={styles.home}>
-            <Header busca={busca} setBusca={setBusca} />
-
-            <MovieList filmes={filmes} setFilmes={setFilmes} busca={busca} />
-        </div>
+        <MoviesProvider>
+            <div className={styles.home}>
+                <Header busca={busca} setBusca={setBusca} />
+                <MovieList filmes={filmes} setFilmes={setFilmes} busca={busca} />
+            </div>
+        </MoviesProvider>
     )
 }

@@ -1,7 +1,12 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_API_URL
+    baseURL: import.meta.env.VITE_TMDB_URL
+})
+
+api.interceptors.request.use(config => {
+    config.headers.Authorization = `Bearer ${import.meta.env.VITE_TMDB_KEY}`
+    return config;
 })
 
 export default api
