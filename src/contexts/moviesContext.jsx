@@ -1,35 +1,32 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
-import apiHandler from "../api/tmdb.api";
-
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const MoviesContext = createContext(null)
 
 export function MoviesProvider({ children }) {
     const [movies, dispatch] = useReducer(moviesReducer, []);
 
-    useEffect(() => {
-        dispatch(movies, 'update')
-    }, [])
-
-    useEffect(() => {
-        console.log(movies)
-    }, [movies])
+    function setMovies(data) {
+        dispatch({ type: 'update', data })
+    }
 
     return (
-        <MoviesContext.Provider value={{ movies, moviesDispatch: dispatch }} >
+        <MoviesContext.Provider value={{ movies, setMovies }} >
             {children}
         </MoviesContext.Provider>
     )
 }
 
-const moviesReducer = async (movies, action) => {
-    switch (action) {
-        default: {
+export function useMoviesContext() {
+    return useContext(MoviesContext);
+}
 
-        }
+const moviesReducer = (movies, action) => {
+    switch (action.type) {
         case 'update': {
-            const movieList = await apiHandler.discoverMovies();
-            return movieList;
+            return action.data;
+        }
+        default: {
+            return movies
         }
 
     }

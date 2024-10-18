@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
+import Stars from "../stars";
 
 
 export default function Card({ filme }) {
 
-    function handleNavigate() { }
+    const navigate = useNavigate()
+    function handleNavigate() {
+        navigate(`/movie/${filme.id}`)
+    }
 
     return (
         <div className={styles.card} onClick={handleNavigate}>
@@ -15,8 +20,11 @@ export default function Card({ filme }) {
                 <div className={styles.cardNome}>
                     {filme.title}
                 </div>
-                <div className={styles.cardDiretor}>
-                    Diretor: {filme.director}
+                <div className={styles.cardRating}>
+                    <Stars stars={filme.stars} />
+                </div>
+                <div className={styles.cardRating}>
+                    <Stars stars={filme.release_date} />
                 </div>
             </div>
         </div >

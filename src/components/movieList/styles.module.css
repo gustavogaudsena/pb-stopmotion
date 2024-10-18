@@ -84,10 +84,6 @@
 
 
 @media (min-width: 720px) {
-    .movieList .movieListContainerCards {
-        justify-content: flex-start;
-    }
-
     .movieListContainerControle {
         flex-direction: row;
         flex-wrap: nowrap;

@@ -1,31 +1,49 @@
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import Card from '../card';
 import { IoIosStar } from "react-icons/io";
 import { LuMoveDown, LuMoveUp } from "react-icons/lu";
 import useTheme from '../../hooks/useTheme';
+import { useMoviesContext } from '../../contexts/moviesContext';
+import { useLoaderData } from 'react-router-dom';
+import { GrNext, GrPrevious } from "react-icons/gr";
 
-
-export default function MovieList({ filmes, setFilmes, busca }) {
+export default function MovieList({ busca }) {
     const [ordernacaoBy, setOrdenacaoBy] = useState('');
     const [ordenacaoAsc, setOrdenacaoAsc] = useState(false);
     const { theme } = useTheme()
+    const { movies, setMovies } = useMoviesContext()
+    const [pages, setPages] = useState({ page: 0, total_pages: 0 })
+    const selectedColor = theme === 'dark' ? 'var(--secondary)' : 'var(--primary)';
 
-    const selectedColor = theme === 'dark' ? 'var(--secondary)': 'var(--primary)';
+    const loader = useLoaderData()
 
     // Função de ordenação basica
     const handleOrdenacao = (event) => {
         const key = event.currentTarget.value;
 
-        const validKey = filmes.every(filme => Object.keys(filme).includes(key))
+        const validKey = movies.every(filme => Object.keys(filme).includes(key))
         if (!validKey) return
 
         setOrdenacaoBy(key);
         setOrdenacaoAsc(!ordenacaoAsc)
 
-        const filmesOrdenados = filmes.sort((a, b) => ordenacaoAsc ? b[key] - a[key] : a[key] - b[key])
-        setFilmes(filmesOrdenados)
+        const filmesOrdenados = movies.sort((a, b) => ordenacaoAsc ? b[key] - a[key] : a[key] - b[key])
+        setMovies(filmesOrdenados)
     }
+
+    const handleNextPage = () => {
+        
+    }
+
+    const handlePreviousPage = () => {
+
+    }
+
+    useEffect(() => {
+        const { page, total_pages, ..._ } = loader
+        setPages({ page, total_pages })
+    }, [loader])
 
     return (
         <div className={styles.movieList}>
@@ -51,16 +69,28 @@ export default function MovieList({ filmes, setFilmes, busca }) {
                         </span>
                     </button>
                 </div>
+                <div className={styles.movieListOrdenacao}>
+                    <span>Paginas</span>
+                    <button onClick={handlePreviousPage} value='previous'>
+                        <GrPrevious />
+                    </button>
+                    <span className={styles.movieListOrdenacaoArrows}>
+                        {pages.page} / {pages.total_pages}
+                    </span>
+                    <button onClick={handleNextPage} value='next'>
+                        <GrNext />
+                    </button>
+                </div>
             </div>
             <div className={styles.movieListContainerCards}>
                 {
-                    filmes &&
-                    filmes.map(filme =>
+                    movies &&
+                    movies.map(filme =>
                         <Card filme={filme} key={filme.id} />
                     )
                 }
                 {
-                    !filmes.length &&
+                    !movies.length &&
                     <div className={styles.movieListNotFound}>
                         {
                             busca &&
