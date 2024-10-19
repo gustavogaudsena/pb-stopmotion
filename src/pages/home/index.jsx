@@ -4,6 +4,7 @@ import MovieList from '../../components/movieList';
 import styles from './styles.module.css';
 import { useMoviesContext } from '../../contexts/moviesContext';
 import { useLoaderData } from 'react-router-dom';
+import Footer from '../../components/footer';
 
 
 export default function Home() {
@@ -16,9 +17,12 @@ export default function Home() {
     }, [])
 
     return (
-        <div className={styles.home}>
-            <Header />
-            <MovieList />
-        </div>
+        <>
+            <div className={styles.home}>
+                <Header />
+                <MovieList />
+            </div>
+            <Footer />
+        </>
     )
 }

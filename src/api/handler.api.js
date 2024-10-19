@@ -33,8 +33,9 @@ class ApiHandler {
         try {
             const config = {
                 params: {
-                    append_to_response: 'videos,keywords',
-                    language: LANGUAGE_PT_BR
+                    append_to_response: 'videos,keywords,images,similar,reviews',
+                    language: LANGUAGE_PT_BR,
+                    include_image_language: 'en'
                 }
             }
 

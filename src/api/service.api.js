@@ -27,7 +27,7 @@ class ApiService {
                     stars: movie.vote_average,
                     imagens: {
                         principal: {
-                            src: `${IMAGES_BASE_URL}/w500/${movie.poster_path ?? movie.backdrop_path}`
+                            src: `${IMAGES_BASE_URL}/original/${movie.poster_path ?? movie.backdrop_path}`
                         }
                     }
                 }
@@ -41,7 +41,22 @@ class ApiService {
     getMovieById = async (id) => {
         try {
             const data = await this.#apiHandler.getMovieDetailsById(id)
-            const movie = data
+            const movie = {
+                id: data.id,
+                title: data.title,
+                originalTitle: data.original_title,
+                overview: data.overview,
+                release_date: data.release_date,
+                popularity: data.popularity,
+                stars: data.vote_average,
+                genres: data.genres,
+                production_companies: data.production_companies.filter(company => company.logo_path && company.name),
+                imagens: {
+                    principal: {
+                        src: `${IMAGES_BASE_URL}/original/${data.poster_path ?? data.backdrop_path}`
+                    }
+                }
+            }
             return movie;
         } catch (e) {
             console.error(e)
@@ -64,7 +79,7 @@ class ApiService {
                     stars: movie.vote_average,
                     imagens: {
                         principal: {
-                            src: `${IMAGES_BASE_URL}/w500/${movie.poster_path ?? movie.backdrop_path}`
+                            src: `${IMAGES_BASE_URL}/original/${movie.poster_path ?? movie.backdrop_path}`
                         }
                     }
                 }

@@ -4,7 +4,7 @@
   --orange: #FD9B63;
   --orange-op: #FD9B634d;
   --wine: #B12F1F;
-  --wine-op: #B12F1F4d;
+  --wine-op: #b12f1f4d;
   --purple: #5D3E9F;
   --purple-op: #5D3E9F4d;
   --white: #F1F1F1;
@@ -31,13 +31,23 @@
   font-weight: 400;
 
   color: var(--text-color);
-  background-color: var(--bg-color);
 }
 
+html {
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--primary-op);
+}
 
 button {
   border: none;
   background-color: none;
+}
+
+@media (min-width: 720px) {
+  html {
+    padding-bottom: 80px;
+  }
 }
 
 :root [data-theme=dark] {
