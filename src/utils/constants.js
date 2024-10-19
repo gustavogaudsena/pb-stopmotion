@@ -1,5 +1,24 @@
 import { v4 as uuidv4 } from 'uuid';
 
+export const KEYWORD_STOPMOTION_ID = 10121;
+export const GENRE_ANIMATION_ID = 16;
+export const LANGUAGE_PT_BR = 'pt-br'
+export const DEFAULT_SORT_BY = 'popularity.desc'
+export const DISCOVER_MOVIES_URL = '/3/discover/movie'
+export const MOVIE_DETAILS_URL = '/3/movie'
+export const MOVIE_SEARCH_URL = '/3/search/movie'
+
+export const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/'
+
+export const SORT_TYPES_MAP = {
+    default: { label: 'Popularidade', value: 'popularity' },
+    popularity: { label: 'Popularidade', value: 'popularity' },
+    vote_average: { label: 'Média de votos', value: 'vote_average' },
+    vote_count: { label: 'Nº de votos', value: 'vote_count' },
+    title: { label: 'Título', value: 'title' },
+    primary_release_date: { label: 'Data de lançamento', value: 'primary_release_date' }
+}
+
 export const MOCK_FILMES = [
     {
         id: uuidv4(), // 3933
@@ -41,5 +60,3 @@ export const MOCK_FILMES = [
         }
     },
 ]
-
-export const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/'

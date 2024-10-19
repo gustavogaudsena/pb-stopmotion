@@ -2,7 +2,7 @@ import SearchBar from '../searchBar'
 import styles from './styles.module.css'
 import { BsGlobeAmericas } from "react-icons/bs";
 
-export default function Header({ busca, setBusca, openFormulario }) {
+export default function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.headerContainer}>
@@ -12,7 +12,7 @@ export default function Header({ busca, setBusca, openFormulario }) {
                         <h1>Stop Motion World</h1>
                     </div>
 
-                    <SearchBar busca={busca} setBusca={setBusca} openFormulario={openFormulario} />
+                    <SearchBar />
                 </div>
             </div>
         </header>

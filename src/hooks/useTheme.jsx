@@ -11,7 +11,8 @@ export default function useTheme() {
     }, [])
 
     function getTheme() {
-        const localTheme = getItem('theme') ?? 'light'
+        // const localTheme = getItem('theme') ?? 'light'
+        const localTheme = 'light'
         setTheme(localTheme)
     }
 

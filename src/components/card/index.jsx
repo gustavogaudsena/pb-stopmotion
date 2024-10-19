@@ -1,30 +1,39 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import Stars from "../stars";
+import { useState } from "react";
+import Image from "../image";
 
 
-export default function Card({ filme }) {
-
+export default function Card({ movie }) {
     const navigate = useNavigate()
+
+    const movieDate = (new Date(movie.release_date)).toLocaleDateString('pt-BR')
     function handleNavigate() {
-        navigate(`/movie/${filme.id}`)
+        navigate(`/movie/${movie.id}`)
     }
 
     return (
         <div className={styles.card} onClick={handleNavigate}>
-            <img
+            <Image
                 className={styles.cardImage}
-                src={filme.imagens.principal.src}
+                src={movie.imagens.principal.src}
             />
             <div className={styles.cardContainer}>
                 <div className={styles.cardNome}>
-                    {filme.title}
+                    {movie.title}
                 </div>
-                <div className={styles.cardRating}>
-                    <Stars stars={filme.stars} />
+                <div className={styles.cardNomeOriginal}>
+                    {movie.originalTitle}
+
                 </div>
-                <div className={styles.cardRating}>
-                    <Stars stars={filme.release_date} />
+                <div className={styles.cardRow}>
+                    <div className={styles.cardRating}>
+                        <Stars stars={movie.stars} />
+                    </div>
+                    <div className={styles.cardDate}>
+                        {movieDate}
+                    </div>
                 </div>
             </div>
         </div >

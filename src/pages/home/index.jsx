@@ -7,7 +7,6 @@ import { useLoaderData } from 'react-router-dom';
 
 
 export default function Home() {
-    const [busca, setBusca] = useState('');
     const { movies, setMovies } = useMoviesContext()
 
     const loader = useLoaderData()
@@ -18,8 +17,8 @@ export default function Home() {
 
     return (
         <div className={styles.home}>
-            <Header busca={busca} setBusca={setBusca} />
-            <MovieList busca={busca} />
+            <Header />
+            <MovieList />
         </div>
     )
 }
