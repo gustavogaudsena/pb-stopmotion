@@ -1,0 +1,157 @@
+.movieListControllerContainer {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+
+.movieListOrdenacaoContainer {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+.movieListControllerContainer button {
+    background-color: transparent;
+    display: flex;
+    gap: 0.25rem;
+    cursor: pointer;
+    align-items: center;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.movieListControllerContainer .movieListOrdenacao button {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.movieListControllerContainer button:hover {
+    color: var(--primary);
+}
+
+.movieListControllerContainer button .controllerItemTitle {
+    white-space: nowrap;
+}
+
+.movieListControllerContainer button[data-sorted=true] .controllerItemTitle {
+    color: var(--primary);
+}
+
+.movieListControllerContainer button svg {
+    color: var(--primary);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+
+.movieListOrdenacao,
+.movieListPaginacao {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0;
+    width: 100%;
+
+}
+
+.movieListPaginacao .movieListPaginacaoIndicadores {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+
+
+.movieListOrdenacao .movieListOrdenacaoArrows,
+.movieListPaginacao .movieListPaginacaoIndicadores {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.movieListOrdenacao .movieListOrdenacaoArrows svg,
+.movieListPaginacao .movieListPaginacaoIndicadores svg {
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
+    color: var(--dark-gray)
+}
+
+
+.movieListOrdenacao span,
+.movieListPaginacao span {
+    color: var(--dark-gray)
+}
+
+.movieListOrdenacao span:hover,
+.movieListPaginacao span:hover {
+    color: var(--primary)
+}
+
+.movieListPaginacao button:disabled,
+.movieListOrdenacao button:disabled
+ {
+    color: var(--dark-gray);
+    cursor: not-allowed;
+}
+
+
+
+@media (min-width: 720px) {
+    .movieListControllerContainer {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .movieListControllerContainer .movieListOrdenacao button {
+        width: auto;
+        justify-content: start;
+    }
+
+    .movieListOrdenacaoContainer {
+        flex-direction: row;
+    }
+
+    .movieListOrdenacao {
+        justify-content: start;
+    }
+
+    .movieListPaginacao {
+        justify-content: end;
+    }
+
+    .movieListGerenciadores {
+        justify-content: end;
+    }
+
+
+}
+
+
+[data-theme=dark] .movieListControllerContainer button svg {
+    color: var(--secondary);
+}
+
+[data-theme=dark] .movieListControllerContainer button:hover {
+    color: var(--secondary);
+}
+
+[data-theme=dark] .movieListGerenciadores button[data-selected=true] {
+    color: var(--secondary);
+}
+
+[data-theme=dark] .movieListGerenciadores span,
+[data-theme=dark] .movieListOrdenacao span {
+    color: var(--black)
+}
+
+[data-theme=dark] .movieListGerenciadores button[data-selected=true] span {
+    color: var(--secondary);
+}
+
+[data-theme=dark] .movieListGerenciadores span:hover,
+[data-theme=dark] .movieListOrdenacao span:hover {
+    color: var(--secondary)
+}

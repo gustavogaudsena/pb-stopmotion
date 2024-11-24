@@ -1,0 +1,36 @@
+.themeContainer {
+    position: fixed;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+    top: 1rem;
+    bottom: unset;
+}
+
+
+.themeButton {
+    cursor: pointer;
+    background-color: var(--primary);
+    border-radius: 100%;
+    font-size: 2rem;
+    display: flex;
+    padding: 0.5rem;
+}
+
+.themeButton:hover {
+    opacity: 0.75;
+}
+
+[data-theme=dark] .themeButton {
+    background-color: var(--primary);
+    color: var(--gray);
+}
+
+@media (min-width: 720px) {
+    .themeButton {
+        font-size: 2.5rem;
+        padding: 1rem;
+    }
+
+}

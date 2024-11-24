@@ -51,6 +51,7 @@ class ApiService {
                 stars: data.vote_average,
                 genres: data.genres,
                 production_companies: data.production_companies.filter(company => company.logo_path && company.name),
+                videos: data.videos,
                 imagens: {
                     principal: {
                         src: `${IMAGES_BASE_URL}/original/${data.poster_path ?? data.backdrop_path}`

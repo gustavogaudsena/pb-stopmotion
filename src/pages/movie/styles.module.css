@@ -1,5 +1,6 @@
 .movies {
     padding: 1rem 1rem;
+    min-height: calc(100vh - 56px);
 }
 
 .movies .moviesContainerPrincipal {
@@ -175,7 +176,11 @@
 }
 
 [data-theme=dark] .movies {
-    background-color: var(--black);
+    background-color: var(--primary-op);
+}
+
+[data-theme=dark]  {
+    color: var(--white);
 }
 
 [data-theme=dark] .movies .moviesContainer svg {

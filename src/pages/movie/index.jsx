@@ -6,9 +6,12 @@ import Stars from '../../components/stars';
 import Badge from '../../components/badge';
 import AvatarLabel from '../../components/avatarLabel';
 import Footer from '../../components/footer';
+import MovieFrame from '../../components/movieFrame';
+import useTheme from '../../hooks/useTheme';
 
 export default function Movie() {
     const { id } = useParams()
+    const { theme, toggleTheme } = useTheme()
     const [movie, setMovie] = useState(null)
     const loader = useLoaderData()
     const [movieDate, setMovieDate] = useState('')
@@ -20,7 +23,7 @@ export default function Movie() {
 
     return (
         <>
-            <div>
+            <div data-theme={theme}>
                 <div className={styles.movies} >
                     <HeaderMovies movie={movie} />
                     {
@@ -52,6 +55,12 @@ export default function Movie() {
                                         <b>Data lançamento: </b>
                                         <span>{movieDate}</span>
                                     </div>
+                                    {
+                                        movie.videos.results &&
+                                        movie.videos.results.length > 0 &&
+                                        movie.videos.results[0]?.key &&
+                                        <MovieFrame movieKey={movie.videos.results[0]?.key} />
+                                    }
                                     {
                                         movie.genres &&
                                         <div className={styles.moviesBadgesContainer}>
@@ -88,8 +97,8 @@ export default function Movie() {
                         </div>
                     }
                 </div>
-            </div >
             <Footer />
+            </div >
         </>
     )
 }

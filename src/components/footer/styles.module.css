@@ -9,6 +9,10 @@
     color: var(--text-color);
 }
 
+[data-theme=dark] .footer {
+    --primary-op-2: var(--primary);
+}
+
 @media (min-width: 720px) {
     .footer {
         bottom: 0;

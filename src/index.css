@@ -36,6 +36,13 @@
 html {
   min-height: 100vh;
   position: relative;
+}
+
+html [data-theme=light] {
+  background-color: var(--primary-op);
+}
+
+html [data-theme=dark] {
   background-color: var(--primary-op);
 }
 
@@ -46,7 +53,7 @@ button {
 
 @media (min-width: 720px) {
   html {
-    padding-bottom: 80px;
+    padding-bottom: 56px;
   }
 }
 
@@ -58,3 +65,4 @@ button {
   --primary: var(--purple);
   --primary-op: var(--purple-op);
 }
+

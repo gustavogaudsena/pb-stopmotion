@@ -47,7 +47,7 @@
 }
 
 [data-theme=dark] .headerMovies {
-    background-color: var(--black);
+    background-color: transparent;
 }
 
 [data-theme=dark] .headerMoviesLink,

@@ -6,9 +6,9 @@ import styles from './styles.module.css'
 import useMovies from "../../../hooks/useMovies";
 import { useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
-import useTheme from "../../../hooks/useTheme";
 import { SORT_TYPES_MAP } from "../../../utils/constants";
 import { useMoviesContext } from "../../../contexts/moviesContext";
+import ControllerItem from "../../controllerItem";
 
 
 export default function MovieListController() {
@@ -77,31 +77,4 @@ export default function MovieListController() {
             </div>
         </div>
     )
-}
-
-export function ControllerItem({ handler, value, title, icon, className, orderBy, sortBy, disabled }) {
-    const { theme } = useTheme()
-
-    const selectedColor = theme === 'dark' ? 'var(--secondary)' : 'var(--primary)';
-
-    return (
-        <button className={className} onClick={handler} value={value} data-sorted={sortBy === value} disabled={disabled}>
-            {icon}
-            <span className={styles.controllerItemTitle}>{title}</span>
-            <span className={styles.movieListOrdenacaoArrows}>
-                <LuMoveDown
-                    color={
-                        sortBy === value && orderBy === 'desc'
-                            ? selectedColor
-                            : undefined
-                    }
-                />
-                <LuMoveUp
-                    color={
-                        sortBy === value && orderBy === 'asc'
-                            ? selectedColor
-                            : undefined
-                    } />
-            </span>
-        </button>)
 }

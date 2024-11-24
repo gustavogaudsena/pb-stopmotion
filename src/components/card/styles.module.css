@@ -101,8 +101,11 @@
 
 
 [data-theme=dark] .card {
-    background-color: var(--dark-gray);
+    background-color: var(--primary);
     color: var(--white);
+}
+[data-theme=dark] .card:hover  {
+    background-color: var(--primary-op);
 }
 
 [data-theme=dark] .card svg {
